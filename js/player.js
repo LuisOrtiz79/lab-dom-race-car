@@ -21,32 +21,34 @@ class Player {
         this.left += this.directionX;
         this.top += this.directionY;
 
-        if(this.left <= 0){
+        if (this.left <= 0) {
             this.left = 5;
             this.directionX *= -1;
         }
 
-        if(this.left + this.width >= 500){
+        if (this.left + this.width >= 500) {
             this.left = 420;
             this.directionX *= -1;
         }
 
-        if(this.top <= 0){
+        if (this.top <= 0) {
             this.top = 5;
             this.directionY *= -1;
         }
 
-        if(this.top + this.height >= 640){
+        if (this.top + this.height >= 640 ) {
             this.top = 485;
             this.directionY *= -1;
         }
 
         this.updatePosition();
+        
     }
 
     updatePosition() {
         this.element.style.left = `${this.left}px`;
         this.element.style.top = `${this.top}px`;
+
     }
 
     didCollide(obstacle) {
@@ -59,9 +61,9 @@ class Player {
             playerRect.top < obstacleRect.bottom &&
             playerRect.bottom > obstacleRect.top
         ) {
-            return true
+            return true;
         } else {
-            return false
+            return false;
         }
     }
 }
